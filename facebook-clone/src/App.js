@@ -1,10 +1,12 @@
 import './App.css';
 import  React, {useState,useEffect} from 'react';
-import {Button, FormControl,InputLabel, Input} from '@material-ui/core';
+import {FormControl, Input} from '@material-ui/core';
 import Message from './Message';
 import db from './firebase';
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core';
 
 function App() {
   const [input, setInput] = useState('');
@@ -45,14 +47,16 @@ function App() {
 
   return (
     <div className="App"> 
-    <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100" />
+    <img src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100" alt="FB" />
       <h1> Facebook Messenger</h1>
       <h3>Welcome {username}</h3>
       <form className="app__form">
-          <FormControl>
-            <InputLabel >Enter a Message</InputLabel>
-            <Input value={input} onChange={(e)=> setInput(e.target.value)}  />
-            <Button variant="contained" color="primary" disabled={!input} type="submit" onClick={sendMessage} >Send Message</Button>
+          <FormControl className="app__formControl">
+            {/* <InputLabel >Enter a Message</InputLabel> */}
+            <Input className="app__input" placeholder="Enter a Message" value={input} onChange={(e)=> setInput(e.target.value)}  />
+            <IconButton className="app__iconButton" variant="contained" color="primary" disabled={!input} type="submit" onClick={sendMessage} >
+              <SendIcon />
+            </IconButton>
           </FormControl>
         
       </form>

@@ -7,4 +7,21 @@
   position: fixed;
   bottom: 0;
   z-index: 1;
+  background-color: #e9e9eb;
+  width: 100%;
+  margin: 20px;
+  margin-left: -10px;
+}
+
+.app__formControl {
+  display: flex !important;
+  flex-direction: row !important; /* we use important to overwrite the material UI rules*/
+}
+
+.app__input {
+  flex: 1;
+}
+
+.app__iconButton {
+  flex: 0;
 }
